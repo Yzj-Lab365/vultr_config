@@ -22,9 +22,6 @@ rules:
   - DOMAIN,chat.deepseek.com,DIRECT
   - DOMAIN,quark.cn,DIRECT
   - DOMAIN,yuanbao.tencent.com,DIRECT
-  - GEOSITE,cn,DIRECT
-  - GEOIP,CN,DIRECT
-  - MATCH,Proxy
   - GEOSITE,cn,DIRECT     # 中国域名直连
   - GEOIP,CN,DIRECT       # 中国 IP 直连
   - MATCH,Proxy           # 其他全部走代理      
