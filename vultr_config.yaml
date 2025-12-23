@@ -1,0 +1,30 @@
+# Clash 配置文件 - 简洁版
+proxies:
+  - name: "Vultr-VLESS"
+    type: vless
+    server: 207.148.105.51
+    port: 443
+    uuid: cf9e35ee-10b0-487c-8496-8c8f326a7efe
+    encryption: none
+    security: tls
+    sni: 207.148.105.51
+    alpn:
+      - http/1.1
+    network: tcp
+
+proxy-groups:
+  - name: "Proxy"
+    type: select
+    proxies:
+      - Vultr-VLESS
+
+rules:
+  - DOMAIN,chat.deepseek.com,DIRECT
+  - DOMAIN,quark.cn,DIRECT
+  - DOMAIN,yuanbao.tencent.com,DIRECT
+  - GEOSITE,cn,DIRECT
+  - GEOIP,CN,DIRECT
+  - MATCH,Proxy
+  - GEOSITE,cn,DIRECT     # 中国域名直连
+  - GEOIP,CN,DIRECT       # 中国 IP 直连
+  - MATCH,Proxy           # 其他全部走代理      
