@@ -1,4 +1,4 @@
-# Clash 配置文件 - 简洁版
+# Clash 配置文件 - 简洁版（WebSocket 版）
 proxies:
   - name: "Vultr-VLESS"
     type: vless
@@ -10,7 +10,9 @@ proxies:
     sni: 207.148.105.51
     alpn:
       - http/1.1
-    network: tcp
+    network: ws
+    ws-opts:
+      path: "/vless"
 
 proxy-groups:
   - name: "Proxy"
@@ -24,4 +26,4 @@ rules:
   - DOMAIN,yuanbao.tencent.com,DIRECT
   - GEOSITE,cn,DIRECT     # 中国域名直连
   - GEOIP,CN,DIRECT       # 中国 IP 直连
-  - MATCH,Proxy           # 其他全部走代理      
+  - MATCH,Proxy           # 其他全部走代理
