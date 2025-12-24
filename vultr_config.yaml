@@ -12,7 +12,7 @@ proxies:
       - http/1.1
     network: ws
     ws-opts:
-      path: "/vless"
+      path: /vless
 
 proxy-groups:
   - name: "Proxy"
